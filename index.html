@@ -3,11 +3,735 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aldergrove Painters</title>
+
+  <title>Aldergrove Painters | Langley & Abbotsford Painting</title>
+
+  <meta name="description"
+        content="Professional interior painting in Langley and Abbotsford. Fast, clean and reliable painting for homeowners, builders, realtors and property managers.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #222;
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    /* HEADER */
+
+    header {
+      background: #111;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,.15);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      color: white;
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: 1px;
+      line-height: 1.05;
+      font-size: 22px;
+    }
+
+    .logo span {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      margin-top: 5px;
+    }
+
+    nav ul {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .nav-button,
+    .button {
+      display: inline-block;
+      background: #f2b705;
+      color: #111;
+      padding: 13px 22px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 800;
+      transition: .2s;
+    }
+
+    .nav-button:hover,
+    .button:hover {
+      transform: translateY(-2px);
+      background: #ffd23f;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      color: white;
+      background:
+        linear-gradient(rgba(0,0,0,.67), rgba(0,0,0,.67)),
+        linear-gradient(135deg, #333, #111);
+    }
+
+    .hero-content {
+      max-width: 760px;
+      padding: 90px 0;
+    }
+
+    .eyebrow {
+      color: #f2b705;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: clamp(40px, 7vw, 72px);
+      line-height: 1.05;
+      margin-bottom: 22px;
+    }
+
+    .hero p {
+      font-size: 21px;
+      max-width: 680px;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .button-outline {
+      border: 2px solid white;
+      color: white;
+      padding: 11px 22px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    /* TRUST BAR */
+
+    .trust-bar {
+      background: #f2b705;
+      padding: 20px 0;
+    }
+
+    .trust-items {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      text-align: center;
+      font-weight: 800;
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 85px 0;
+    }
+
+    .section-heading {
+      max-width: 720px;
+      margin-bottom: 45px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(32px, 4vw, 46px);
+      line-height: 1.15;
+      margin-bottom: 15px;
+    }
+
+    .section-heading p {
+      font-size: 18px;
+      color: #555;
+    }
+
+    /* SERVICES */
+
+    .services {
+      background: #f7f7f7;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 18px rgba(0,0,0,.07);
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #555;
+    }
+
+    /* WHO WE WORK WITH */
+
+    .customers-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+    }
+
+    .customer {
+      background: #111;
+      color: white;
+      min-height: 120px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      border-radius: 8px;
+      padding: 20px;
+      font-weight: 700;
+    }
+
+    /* PROJECTS */
+
+    .projects {
+      background: #111;
+      color: white;
+    }
+
+    .projects .section-heading p {
+      color: #ccc;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .project-photo {
+      min-height: 260px;
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, #444, #222);
+      display: flex;
+      align-items: end;
+      padding: 24px;
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    /* REVIEWS */
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .review {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 28px;
+    }
+
+    .stars {
+      color: #f2b705;
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    /* CTA */
+
+    .cta {
+      background: #f2b705;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: clamp(34px, 5vw, 52px);
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      font-size: 19px;
+      margin-bottom: 25px;
+    }
+
+    .cta .button {
+      background: #111;
+      color: white;
+    }
+
+    /* QUOTE */
+
+    .quote {
+      background: #f5f5f5;
+    }
+
+    .quote-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: start;
+    }
+
+    .quote-info h2 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .quote-info p {
+      color: #555;
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    form {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 18px rgba(0,0,0,.07);
+    }
+
+    label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 13px;
+      margin-bottom: 18px;
+      border: 1px solid #bbb;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #111;
+      color: #ccc;
+      padding: 45px 0;
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    footer strong {
+      color: white;
+      font-size: 20px;
+    }
+
+    footer a {
+      color: #f2b705;
+      text-decoration: none;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      nav ul {
+        display: none;
+      }
+
+      .trust-items,
+      .cards,
+      .customers-grid,
+      .project-grid,
+      .reviews-grid,
+      .quote-wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-items {
+        gap: 10px;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-content {
+        padding: 75px 0;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Aldergrove Painters Inc.</h1>
-  <p>Professional Interior Painting in Langley & Abbotsford</p>
-  <p>Fast, Clean & Reliable — Free Quotes Available</p>
+
+<header>
+  <div class="container nav">
+
+    <a class="logo" href="#">
+      ALDERGROVE
+      <span>PAINTERS INC.</span>
+    </a>
+
+    <nav>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a class="nav-button" href="#quote">Free Quote</a></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+
+<main>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+
+        <div class="eyebrow">
+          Langley • Abbotsford • Aldergrove
+        </div>
+
+        <h1>
+          Professional Interior Painting in Langley & Abbotsford
+        </h1>
+
+        <p>
+          Fast, clean and reliable painting for homeowners,
+          builders, realtors, contractors and property managers.
+          Free quotes available.
+        </p>
+
+        <div class="hero-buttons">
+          <a class="button" href="#quote">Get a Free Quote</a>
+          <a class="button-outline" href="#services">View Our Services</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <div class="trust-bar">
+    <div class="container trust-items">
+      <div>Professional Service</div>
+      <div>Clean Worksites</div>
+      <div>Reliable Scheduling</div>
+      <div>Free Quotes</div>
+    </div>
+  </div>
+
+
+  <section id="services" class="services">
+    <div class="container">
+
+      <div class="section-heading">
+        <h2>Interior Painting Done Right</h2>
+        <p>
+          From a single room to complete homes and new construction,
+          Aldergrove Painters provides professional interior painting
+          throughout Langley and Abbotsford.
+        </p>
+      </div>
+
+      <div class="cards">
+
+        <div class="card">
+          <h3>Walls & Ceilings</h3>
+          <p>
+            Clean, even finishes for bedrooms, living spaces,
+            kitchens, hallways and ceilings.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Doors & Frames</h3>
+          <p>
+            Professional painting for interior doors,
+            door frames and window frames.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Trim & Baseboards</h3>
+          <p>
+            Detailed painting of baseboards, crown moulding
+            and interior trim.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>New Construction</h3>
+          <p>
+            Dependable painting services for builders and
+            contractors working on new homes and renovations.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Repaints</h3>
+          <p>
+            Refresh your home with professionally prepared
+            surfaces and a clean new finish.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Move-In & Sale Painting</h3>
+          <p>
+            Fast turnaround painting for homeowners,
+            realtors and property managers.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <section>
+    <div class="container">
+
+      <div class="section-heading">
+        <h2>Who We Work With</h2>
+        <p>
+          Professional painting services for residential
+          and construction clients throughout the Fraser Valley.
+        </p>
+      </div>
+
+      <div class="customers-grid">
+        <div class="customer">Homeowners</div>
+        <div class="customer">Builders</div>
+        <div class="customer">Contractors</div>
+        <div class="customer">Realtors</div>
+        <div class="customer">Property Managers</div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section id="projects" class="projects">
+    <div class="container">
+
+      <div class="section-heading">
+        <h2>Recent Painting Projects</h2>
+        <p>
+          A look at some of our interior painting work.
+          We will add your real project photographs here next.
+        </p>
+      </div>
+
+      <div class="project-grid">
+
+        <div class="project-photo">
+          Interior Painting
+        </div>
+
+        <div class="project-photo">
+          New Construction
+        </div>
+
+        <div class="project-photo">
+          Home Repaint
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <section id="reviews">
+    <div class="container">
+
+      <div class="section-heading">
+        <h2>Trusted by Local Customers</h2>
+        <p>
+          Customer service, dependable scheduling and quality
+          workmanship are at the centre of every project.
+        </p>
+      </div>
+
+      <div class="reviews-grid">
+
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>
+            Your Google customer review will go here.
+          </p>
+        </div>
+
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>
+            Your Google customer review will go here.
+          </p>
+        </div>
+
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>
+            Your Google customer review will go here.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <section class="cta">
+
+    <div class="container">
+      <h2>Planning a Painting Project?</h2>
+
+      <p>
+        Tell us what you need painted and we'll help you get started.
+      </p>
+
+      <a class="button" href="#quote">
+        Request a Free Quote
+      </a>
+    </div>
+
+  </section>
+
+
+  <section id="quote" class="quote">
+    <div class="container quote-wrapper">
+
+      <div class="quote-info">
+        <h2>Get a Free Painting Quote</h2>
+
+        <p>
+          Serving Aldergrove, Langley, Abbotsford and surrounding areas.
+        </p>
+
+        <p>
+          Tell us a little about your project and we'll get in touch.
+        </p>
+      </div>
+
+
+      <form>
+
+        <label for="name">Name</label>
+        <input id="name" type="text" placeholder="Your name">
+
+        <label for="phone">Phone</label>
+        <input id="phone" type="tel" placeholder="Your phone number">
+
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="Your email">
+
+        <label for="location">Project Location</label>
+        <input id="location" type="text"
+               placeholder="Langley, Abbotsford, Aldergrove...">
+
+        <label for="project">What do you need painted?</label>
+        <textarea id="project"
+                  placeholder="Tell us about your project"></textarea>
+
+        <button class="button" type="button">
+          Request My Free Quote
+        </button>
+
+      </form>
+
+    </div>
+  </section>
+
+</main>
+
+
+<footer>
+  <div class="container footer-grid">
+
+    <div>
+      <strong>Aldergrove Painters Inc.</strong>
+      <p>Professional Interior Painting</p>
+    </div>
+
+    <div>
+      <p>Serving Langley, Abbotsford & Aldergrove, BC</p>
+      <p>© 2026 Aldergrove Painters Inc.</p>
+    </div>
+
+  </div>
+</footer>
+
 </body>
 </html>
